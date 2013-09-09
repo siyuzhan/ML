@@ -34,6 +34,7 @@ def partB():
     sim_max, label = -1, -1
     correct_pred, predict, true = [], [], []
     genre_centroid = PS1.get_genre_centroid(knn.training_data, knn.training_labels)
+    print(genre_centroid)
     for i in range(len(knn.test_data)):
         for j in range(len(genre_centroid)):
             sim = PS1.cosine_similarity(knn.test_data[i], genre_centroid[j])
