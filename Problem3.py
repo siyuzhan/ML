@@ -39,6 +39,7 @@ def partB():
             sim = PS1.cosine_similarity(knn.test_data[i], genre_centroid[j])
             if (sim > sim_max):
                 label = j
+                print(label)
         if (label == knn.test_labels[i]):
             correct_pred[label] += 1
         predict[label] += 1
