@@ -17,6 +17,7 @@ def cosine_similarity(v1, v2):
 def euclidean_normalized(vector):
     norm = np.linalg.norm(vector);
     vector = [(v/norm) for v in vector]
+    return vector
 
 def get_genre_centroid(data_train, labels_train):
     genre_centroid = [[]]
