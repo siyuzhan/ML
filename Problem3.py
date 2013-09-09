@@ -42,7 +42,7 @@ def partB():
                 label = j
                 print(label)
                 print(knn.test_labels[i])
-        if (label == knn.test_labels[i]):
+        if (label == int(knn.test_labels[i])):
             correct_pred[label] += 1
         predict[label] += 1
         true[knn.test_labels[i]] +=1
