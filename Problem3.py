@@ -31,11 +31,11 @@ def partB():
     knn = PS1.kNN(1, PS1.cosine_similarity)
     knn.train("PS1_data/books.train")
     knn.load_test_file("PS1_data/books.test")
-    sim_max, label = -1, -1
     correct_pred, predict, true = [0 for i in range(5)], [0 for i in range(5)], [0 for i in range(5)]
     genre_centroid = PS1.get_genre_centroid(knn.training_data, knn.training_labels)
     print(genre_centroid)
     for i in range(len(knn.test_data)):
+        sim_max, label = -1, -1
         for j in range(len(genre_centroid)):
             sim = PS1.cosine_similarity(knn.test_data[i], genre_centroid[j])
             if (sim > sim_max):
