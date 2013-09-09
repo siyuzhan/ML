@@ -41,6 +41,7 @@ def partB():
             if (sim > sim_max):
                 label = j
                 print(label)
+                print(knn.test_labels[i])
         if (label == knn.test_labels[i]):
             correct_pred[label] += 1
         predict[label] += 1
