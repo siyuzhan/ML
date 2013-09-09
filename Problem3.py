@@ -1,4 +1,4 @@
-import PS1, string
+import PS1, string, numpy
 
 def load_titles():
     f1 = open("PS1_data/books.train.titles", 'r')
@@ -44,6 +44,6 @@ def partB():
         if (label == int(knn.test_labels[i])):
             correct_pred[label] += 1
         predict[label] += 1
-        true[knn.test_labels[i]] +=1
+        true[int(numpy.asscalar(knn.test_labels[i]))] +=1
     return correct_pred, predict, true
 
