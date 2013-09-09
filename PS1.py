@@ -19,7 +19,7 @@ def euclidean_normalized(vector):
     vector = [(v/norm) for v in vector]
 
 def get_genre_centroid(data_train, labels_train):
-    genre_centroid = []
+    genre_centroid = [[]]
     for i in range(len(data_train)):
         normalized = euclidean_normalized(data_train[i])
         label = int(np.asscalar(labels_train[i]))
