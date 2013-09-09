@@ -32,7 +32,7 @@ def partB():
     knn.train("PS1_data/books.train")
     knn.load_test_file("PS1_data/books.test")
     sim_max, label = -1, -1
-    correct_pred, predict, true = [], [], []
+    correct_pred, predict, true = [0 for i in range(5)], [0 for i in range(5)], [0 for i in range(5)]
     genre_centroid = PS1.get_genre_centroid(knn.training_data, knn.training_labels)
     print(genre_centroid)
     for i in range(len(knn.test_data)):
@@ -41,7 +41,6 @@ def partB():
             if (sim > sim_max):
                 label = j
                 print(label)
-                print(knn.test_labels[i])
         if (label == int(knn.test_labels[i])):
             correct_pred[label] += 1
         predict[label] += 1
