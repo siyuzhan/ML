@@ -22,7 +22,7 @@ def get_genre_centroid(data_train, labels_train):
     genre_centroid = []
     for i in range(len(data_train)):
         normalized = euclidean_normalized(data_train[i])
-        genre_centroid[np.asscalar(labels_train[i])] += normalized
+        genre_centroid[int(np.asscalar(labels_train[i]))] += normalized
     return genre_centroid
 
 
