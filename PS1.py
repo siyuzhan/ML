@@ -45,7 +45,7 @@ class kNN:
         self.training_data = np.asarray(train_dense)
 
     def load_test_file(self, path):
-        test_sparse, toss = svml.load_svmlight_file(path)
+        test_sparse, self.test_labels = svml.load_svmlight_file(path)
         test_dense = test_sparse.todense()
         self.test_data = np.asarray(test_dense)
 
