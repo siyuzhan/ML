@@ -45,14 +45,12 @@ def partB():
             correct_pred[label] += 1
         predict[label] += 1
         true[int(numpy.asscalar(knn.test_labels[i]))] +=1
-    print len(knn.test_data)
-    print sum(correct_pred)
-    accuracy = sum(correct_pred)/len(knn.test_data)
+    accuracy = float(sum(correct_pred))/len(knn.test_data)
     for i in range(5):
         if predict[i] != 0:
-            precision[i] = correct_pred[i]/predict[i]
+            precision[i] = float(correct_pred[i])/predict[i]
         if true[i] != 0:
-            recall[i] = correct_pred[i]/true[i]
+            recall[i] = float(correct_pred[i])/true[i]
     return accuracy, precision, recall
 
 def partC(k = 5):
