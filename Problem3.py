@@ -32,6 +32,7 @@ def partB():
     knn.train("PS1_data/books.train")
     knn.load_test_file("PS1_data/books.test")
     correct_pred, predict, true = [0 for i in range(5)], [0 for i in range(5)], [0 for i in range(5)]
+    precision, recall = [0 for i in range(5)], [0 for i in range(5)]
     genre_centroid = kNN.get_genre_centroid(knn.training_data, knn.training_labels)
     for i in range(len(knn.test_data)):
         sim_max, label = -1, -1
@@ -44,7 +45,13 @@ def partB():
             correct_pred[label] += 1
         predict[label] += 1
         true[int(numpy.asscalar(knn.test_labels[i]))] +=1
-    return correct_pred, predict, true
+    accuracy = sum(correct_pred)/len(knn.test_data)
+    for i in range(5):
+        if predict[i] != 0:
+            precision[i] = correct_pred[i]/predict[i]
+        if true[i] != 0:
+            recall[i] = correct_pred[i]/true[i]
+    return accuracy, precision, recall
 
 def partC(k = 5):
     train_titles, test_titles = load_titles()
